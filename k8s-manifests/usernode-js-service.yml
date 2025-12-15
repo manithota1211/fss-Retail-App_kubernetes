@@ -4,10 +4,12 @@ metadata:
   name: usernode-js-service
   namespace: mani-ns
 spec:
-  type: ClusterIP  # Use NodePort if LoadBalancer is not supported
+  type: Nodeport  # Use NodePort if LoadBalancer is not supported
   ports:
-    - port: 3130
-      targetPort: 3130
+    - port: 3130          # Service port (internal)
+      targetPort: 3130    # Container port
+      nodePort: 30080     # External port (browser)
       protocol: TCP
+
   selector:
     app: userprofile
