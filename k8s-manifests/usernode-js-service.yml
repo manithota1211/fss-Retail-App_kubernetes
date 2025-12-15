@@ -4,7 +4,7 @@ metadata:
   name: usernode-js-service
   namespace: mani-ns
 spec:
-  type: Nodeport  # Use NodePort if LoadBalancer is not supported
+  type: NodePort  # Use NodePort if LoadBalancer is not supported
   ports:
     - port: 3130          # Service port (internal)
       targetPort: 3130    # Container port
